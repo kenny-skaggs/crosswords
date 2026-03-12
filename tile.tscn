@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://b04s7yw3hav1m"]
+
+[ext_resource type="Script" uid="uid://cbb072p0ods7x" path="res://tile.gd" id="1_n3f48"]
+
+[sub_resource type="Animation" id="Animation_n3f48"]
+length = 0.033333335
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cursor:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vx4y2"]
+resource_name = "blink"
+length = 0.6
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cursor:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a2t34"]
+_data = {
+&"RESET": SubResource("Animation_n3f48"),
+&"blink": SubResource("Animation_vx4y2")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3f48"]
+size = Vector2(55, 55)
+
+[node name="Tile" type="Button" unique_id=1027355364]
+custom_minimum_size = Vector2(45, 45)
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+script = ExtResource("1_n3f48")
+
+[node name="Label" type="Label" parent="." unique_id=583939926]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="cursor" type="ColorRect" parent="." unique_id=451740226]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -1.5
+offset_top = 7.0
+offset_right = 1.5
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="cursor_animation" type="AnimationPlayer" parent="." unique_id=1138639059]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_a2t34")
+
+[node name="number_label" type="Label" parent="." unique_id=1144058777]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 15.0
+offset_bottom = 14.0
+theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 1)
+theme_override_font_sizes/font_size = 12
+
+[node name="mouse_detection" type="Area2D" parent="." unique_id=1483819523]
+unique_name_in_owner = true
+position = Vector2(22.5, 22.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mouse_detection" unique_id=996558613]
+shape = SubResource("RectangleShape2D_n3f48")

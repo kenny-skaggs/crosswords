@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://b5vhyclrlirah"]
+
+[ext_resource type="Script" uid="uid://barnnmkqi251l" path="res://construction/word_display.gd" id="1_qoeq3"]
+
+[node name="WordDisplay" type="HBoxContainer" unique_id=1491503763]
+custom_minimum_size = Vector2(0, 50)
+offset_right = 197.0
+offset_bottom = 50.0
+size_flags_horizontal = 3
+script = ExtResource("1_qoeq3")
+
+[node name="Control2" type="Control" parent="." unique_id=652568494]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="button" type="Button" parent="Control2" unique_id=291378819]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 217.0
+offset_bottom = 49.0
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1152693642]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1861194785]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=970918412]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="index_display" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=943250692]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5649617, 0.5649616, 0.5649616, 0.5294118)
+text = "12:"
+horizontal_alignment = 2
+
+[node name="hint_display" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1497594264]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="hint_input" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=2109939886]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+expand_to_text_length = true
+
+[node name="character_display" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=736134300]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+alignment = 2

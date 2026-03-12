@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://mal0vl2yl1hy"]
+
+[ext_resource type="Script" uid="uid://05jq853g8x7h" path="res://grid.gd" id="1_65i6o"]
+[ext_resource type="Theme" uid="uid://bt8koa8s4nh81" path="res://grid_theme.tres" id="1_sle3t"]
+[ext_resource type="PackedScene" uid="uid://ci6jlb4gur8ii" path="res://construction/word_list_display.tscn" id="3_sle3t"]
+
+[node name="builder" type="Control" unique_id=2082230215]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("1_sle3t")
+script = ExtResource("1_65i6o")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1674146077]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="SplitContainer" type="HSplitContainer" parent="MarginContainer" unique_id=1246766139]
+layout_mode = 2
+theme_override_constants/autohide = 0
+split_offsets = PackedInt32Array(68)
+split_offset = 68
+
+[node name="grid_container" type="CenterContainer" parent="MarginContainer/SplitContainer" unique_id=1130875916]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="tile_grid" type="GridContainer" parent="MarginContainer/SplitContainer/grid_container" unique_id=661901771]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 1
+theme_override_constants/v_separation = 1
+columns = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/SplitContainer" unique_id=1451622157]
+layout_mode = 2
+
+[node name="word_lists" type="VBoxContainer" parent="MarginContainer/SplitContainer/MarginContainer" unique_id=1737516856]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/SplitContainer/MarginContainer/word_lists" unique_id=58948250]
+layout_mode = 2
+text = "Across:"
+
+[node name="across_list" parent="MarginContainer/SplitContainer/MarginContainer/word_lists" unique_id=344650290 instance=ExtResource("3_sle3t")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label2" type="Label" parent="MarginContainer/SplitContainer/MarginContainer/word_lists" unique_id=1866100507]
+layout_mode = 2
+text = "Down:"
+
+[node name="down_list" parent="MarginContainer/SplitContainer/MarginContainer/word_lists" unique_id=257242021 instance=ExtResource("3_sle3t")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/SplitContainer/MarginContainer/word_lists" unique_id=1777630241]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="quit_button" type="Button" parent="MarginContainer/SplitContainer/MarginContainer/word_lists/HBoxContainer" unique_id=987677027]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit"

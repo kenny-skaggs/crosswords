@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://gx6hx3n0el5m"]
+
+[sub_resource type="GDScript" id="GDScript_0r0p4"]
+script/source = "extends Control
+
+
+@onready var area_2d: Area2D = $Area2D
+
+
+func _ready() -> void:
+	area_2d.mouse_entered.connect(print.bind('can see mouse'))
+
+
+
+
+func _on_area_2d_mouse_entered() -> void:
+	print('can really see mouse')
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sle3t"]
+size = Vector2(185, 316)
+
+[node name="builder" type="Control" unique_id=2082230215]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = SubResource("GDScript_0r0p4")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1092697792]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1783388450]
+position = Vector2(86, 136)
+shape = SubResource("RectangleShape2D_sle3t")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

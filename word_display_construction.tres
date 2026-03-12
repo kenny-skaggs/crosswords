@@ -1,0 +1,5 @@
+[gd_resource type="Theme" format=3 uid="uid://1u2upqv54ee0"]
+
+[resource]
+WordChars/base_type = &"Label"
+WordChars/font_sizes/font_size = 8
